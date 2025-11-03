@@ -1,0 +1,45 @@
+name: xiaomishop
+description: "xiaomishop app"
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.2
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  get: ^4.7.2
+  flutter_swiper_view: ^1.1.8
+  dio: ^5.9.0
+  flutter_screenutil: ^5.9.3
+  flutter_staggered_grid_view: ^0.7.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/xiaomiBanner.png
+    - assets/images/2.0x/xiaomiBanner.png
+    - assets/images/3.0x/xiaomiBanner.png
+
+
+  fonts:
+    - family: ityingIcon
+      fonts:
+        - asset: assets/fonts/iconfont.ttf
+
+
+
