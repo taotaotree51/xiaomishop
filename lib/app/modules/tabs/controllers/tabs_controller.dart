@@ -10,8 +10,8 @@ import 'package:xiaomishop/app/modules/user/views/user_view.dart';
 
 class TabsController extends GetxController {
   //TODO: Implement TabsController
-  RxInt currentIndex = 0.obs;
-  PageController pageController = PageController(initialPage: 0);
+  RxInt currentIndex = 1.obs;
+  PageController pageController = PageController(initialPage:1);
   List<Widget> pages = [
     HomeView(),
     CategoryView(),
