@@ -9,6 +9,7 @@ import 'package:xiaomishop/app/services/ityingFonts.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import 'package:flutter_swiper_view/flutter_swiper_view.dart';
+import 'package:xiaomishop/app/services/httpsClient.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -66,7 +67,7 @@ class HomeView extends GetView<HomeController> {
                             top: Radius.circular(10.r),
                           ),
                           child: Image.network(
-                            "https://miapp.itying.com/${product.pic}",
+                            HttpsClient.getNetPictureUrl(product.pic ?? ''),
                             fit: BoxFit.cover,
                             width: double.infinity,
                             errorBuilder: (context, error, stackTrace) {
@@ -140,7 +141,7 @@ class HomeView extends GetView<HomeController> {
                 itemBuilder: (context, index) {
                   var item = controller.swiperList[index];
                   return Image.network(
-                    "https://miapp.itying.com/${item.pic}",
+                    HttpsClient.getNetPictureUrl(item.pic ?? ''),
                     fit: BoxFit.fill,
                     errorBuilder: (context, error, stackTrace) {
                       return Container(

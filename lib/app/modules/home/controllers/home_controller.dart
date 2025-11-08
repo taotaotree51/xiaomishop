@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
 import 'package:xiaomishop/app/models/focus_model.dart';
 import 'package:xiaomishop/app/models/plist_model.dart';
+import 'package:xiaomishop/app/services/httpsClient.dart';
 
 class HomeController extends GetxController {
   
@@ -53,7 +53,7 @@ class HomeController extends GetxController {
   /// API: https://miapp.itying.com/api/focus
   Future<void> getFocusData() async {
     try {
-      var response = await Dio().get("https://miapp.itying.com/api/focus");
+      var response = await HttpsClient.get("/api/focus");
       
       // 使用 FocusModel 解析数据
       var focusModel = FocusModel.fromJson(response.data);
@@ -72,7 +72,7 @@ class HomeController extends GetxController {
   /// API: https://miapp.itying.com/api/plist?is_bast=1
   Future<void> getProductList() async {
     try {
-      var response = await Dio().get("https://miapp.itying.com/api/plist?is_bast=1");
+      var response = await HttpsClient.get("/api/plist", params: {"is_bast": "1"});
       
       // 使用 PlistModel 解析数据
       var plistModel = PlistModel.fromJson(response.data);
