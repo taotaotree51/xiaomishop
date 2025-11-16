@@ -25,8 +25,7 @@ import 'package:flutter/material.dart';
 /// ```
 class KeepAliveWrapper extends StatefulWidget {
   const KeepAliveWrapper(
-      {Key? key, @required this.child, this.keepAlive = true})
-      : super(key: key);
+      {super.key, @required this.child, this.keepAlive = true});
 
   /// 需要保持状态的子组件
   final Widget? child;

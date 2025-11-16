@@ -48,6 +48,33 @@ class ProductItemModel {
   
   /// 小图片路径
   String? sPic;
+  
+  /// 销量
+  int? salecount;
+  
+  /// 是否热门（1-是 0-否）
+  int? isHot;
+  
+  /// 是否精华/推荐（1-是 0-否）
+  int? isBest;
+  
+  /// 库存
+  int? stock;
+  
+  /// 状态（1-上架 0-下架）
+  int? status;
+  
+  /// 商品描述
+  String? content;
+  
+  /// 分类名称
+  String? catTitle;
+  
+  /// 原价（划线价）
+  num? oldPrice;
+  
+  /// 关键词
+  String? keywords;
 
   ProductItemModel({
     this.sId,
@@ -57,6 +84,15 @@ class ProductItemModel {
     this.pic,
     this.subTitle,
     this.sPic,
+    this.salecount,
+    this.isHot,
+    this.isBest,
+    this.stock,
+    this.status,
+    this.content,
+    this.catTitle,
+    this.oldPrice,
+    this.keywords,
   });
 
   /// 从 JSON 创建 ProductItemModel
@@ -68,6 +104,17 @@ class ProductItemModel {
     pic = json['pic'];
     subTitle = json['sub_title'];
     sPic = json['s_pic'];
+    
+    // 新增字段（可选）
+    salecount = json['salecount'];
+    isHot = json['is_hot'];
+    isBest = json['is_best'];
+    stock = json['stock'];
+    status = json['status'];
+    content = json['content'];
+    catTitle = json['cat_title'];
+    oldPrice = json['old_price'];
+    keywords = json['keywords'];
   }
 
   /// 转换为 JSON
@@ -80,8 +127,34 @@ class ProductItemModel {
     data['pic'] = pic;
     data['sub_title'] = subTitle;
     data['s_pic'] = sPic;
+    
+    // 新增字段（可选）
+    if (salecount != null) data['salecount'] = salecount;
+    if (isHot != null) data['is_hot'] = isHot;
+    if (isBest != null) data['is_best'] = isBest;
+    if (stock != null) data['stock'] = stock;
+    if (status != null) data['status'] = status;
+    if (content != null) data['content'] = content;
+    if (catTitle != null) data['cat_title'] = catTitle;
+    if (oldPrice != null) data['old_price'] = oldPrice;
+    if (keywords != null) data['keywords'] = keywords;
+    
     return data;
   }
+  
+  // ============ 便捷 Getter 方法 ============
+  
+  /// 是否为热门商品
+  bool get isHotProduct => isHot == 1;
+  
+  /// 是否为精华/推荐商品
+  bool get isBestProduct => isBest == 1;
+  
+  /// 是否有库存
+  bool get hasStock => (stock ?? 0) > 0;
+  
+  /// 是否上架
+  bool get isOnSale => status == 1;
 }
 
 

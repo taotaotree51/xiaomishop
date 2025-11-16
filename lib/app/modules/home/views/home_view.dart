@@ -131,7 +131,7 @@ class HomeView extends GetView<HomeController> {
   }
 
   Widget _swipe() {
-    return Container(
+    return SizedBox(
       width: 1080.w,
       height: 682.h,
       child: Obx(

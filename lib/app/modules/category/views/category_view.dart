@@ -53,7 +53,7 @@ class CategoryView extends GetView<CategoryController> {
 
   /// 左侧一级分类列表
   Widget _leftCategoryList() {
-    return Container(
+    return SizedBox(
       width: 280.w,
       height: double.infinity,
       child: Obx(
@@ -63,7 +63,7 @@ class CategoryView extends GetView<CategoryController> {
                 itemCount: controller.categoryList.length,
                 itemBuilder: (context, index) {
                   var category = controller.categoryList[index];
-                  return Container(
+                  return SizedBox(
                     width: double.infinity,
                     height: 140.h,
                     child: Obx(

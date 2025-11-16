@@ -25,12 +25,11 @@ void main() {
           debugShowCheckedModeBanner: false,
           title: "Application",
           theme: ThemeData(
-            appBarTheme: AppBarTheme(
-              backgroundColor: Colors.blue,
-              foregroundColor: Colors.white,
-            ),
+            primarySwatch: Colors.grey,
+
           ),
           initialRoute: AppPages.INITIAL,
+          defaultTransition: Transition.rightToLeft,
           getPages: AppPages.routes,
       );
 
